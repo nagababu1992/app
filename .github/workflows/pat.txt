@@ -1,4 +1,0 @@
-
-pat
-settings developer settings token
-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
