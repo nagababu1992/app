@@ -1,0 +1,25 @@
+
+Step 2: Go to Your GitHub Repository
+Settings 
+Actions
+Under the Self-hosted runners section, click on Add runner.
+
+
+
+# Create a folder
+$ mkdir actions-runner && cd actions-runner
+# Download the latest runner package
+$ curl -o actions-runner-linux-x64-2.323.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.323.0/actions-runner-linux-x64-2.323.0.tar.gz
+# Optional: Validate the hash
+$ echo "0dbc9bf5a58620fc52cb6cc0448abcca964a8d74b5f39773b7afcad9ab691e19  actions-runner-linux-x64-2.323.0.tar.gz" | shasum -a 256 -c
+# Extract the installer
+$ tar xzf ./actions-runner-linux-x64-2.323.0.tar.gz
+
+
+./config.sh --url https://github.com/nagababu1992/githubactions --token BCIN3VM7RKRY353FPV35MLLH4ZHWU
+./run.sh &
+
+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
+
+runs-on: self-hosted
+

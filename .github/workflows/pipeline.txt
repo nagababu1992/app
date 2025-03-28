@@ -1,4 +1,9 @@
-name: Node.js CI
+
+#repo
+#mkdir -p .github/workflows
+
+#te.yml
+#name: Node.js CI
 
 on:
   push:
@@ -10,7 +15,7 @@ on:
 
 jobs:
   build:
-    runs-on: dev
+    runs-on: self-hosted
 
     steps:
     - name: Checkout code
@@ -25,5 +30,4 @@ jobs:
       run: npm install
 
     - name: Run tests
-      run: npm rub build
-
+      run: npm run build
