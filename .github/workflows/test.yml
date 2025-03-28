@@ -24,9 +24,20 @@ jobs:
         sudo apt-get install -y curl
         curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
         sudo apt-get install -y nodejs
+<<<<<<< HEAD
         # Verify Node.js installation
         node -v
+=======
+
+        # Verify Node.js installation
+        node -v
+        npm -v
+>>>>>>> 99ee2d0ff171063c03fd9a198639794745e59aeb
 
     - name: Install dependencies
       run: |
         sudo apt install npm
+<<<<<<< HEAD
+=======
+
+>>>>>>> 99ee2d0ff171063c03fd9a198639794745e59aeb
