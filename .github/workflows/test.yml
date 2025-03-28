@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: dev
+    runs-on: self-runner
 
     steps:
     - name: Checkout code
