@@ -3,28 +3,32 @@ name: Node.js CI
 on:
   push:
     branches:
-      - main    # Or any other branch you want to trigger on
+      - main    # Trigger on push to the main branch
   pull_request:
     branches:
-      - main    # Or any other branch you want to trigger on
+      - main    # Trigger on pull request to the main branch
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: self-hosted  # Using the self-hosted runner
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2  # This ensures that the code is checked out
 
     - name: Install Node.js (Dynamic installation)
       run: |
-        # Update and install required dependencies
+        # Install Node.js (if not pre-installed)
         sudo apt-get update
         sudo apt-get install -y curl
-
-        # Install Node.js (you can specify a version, here I'm using version 16)
         curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
         sudo apt-get install -y nodejs
 
+        # Verify Node.js installation
+        node -v
+        npm -v
+
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd app   # Change directory to where package.json is located
+        npm install  # Install dependencies from package.json
