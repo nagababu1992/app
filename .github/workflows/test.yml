@@ -31,4 +31,6 @@ jobs:
     - name: Install dependencies
       run: |
         cd app   # Change directory to where package.json is located
+        sudo apt install npm
+        
         npm install  # Install dependencies from package.json
