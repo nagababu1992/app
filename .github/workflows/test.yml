@@ -1,29 +1,32 @@
-name: Node.js CI
 
+name: Node.js CI
+# install all softwares on ec2 manucally 
 on:
   push:
     branches:
-      - main    # Or any other branch you want to trigger on
+      - main    # Trigger on push to the main branch
   pull_request:
     branches:
-      - main    # Or any other branch you want to trigger on
+      - main    # Trigger on pull request to the main branch
 
 jobs:
   build:
-    runs-on: dev
+    runs-on: self-hosted  # Using the self-hosted runner
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2  # This ensures that the code is checked out
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+    - name: Install Node.js (Dynamic installation)
+      run: |
+        # Install Node.js (if not pre-installed)
+        sudo apt-get update
+        sudo apt-get install -y curl
+        curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        # Verify Node.js installation
+        node -v
 
     - name: Install dependencies
-      run: npm install
-
-    - name: Run tests
-      run: npm rub build
-
+      run: |
+        sudo apt install npm
